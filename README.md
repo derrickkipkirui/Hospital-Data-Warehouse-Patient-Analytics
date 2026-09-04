@@ -65,3 +65,11 @@ Boston hospital with fragmented EHR (patients, encounters, procedures, payers), 
 **Hypothesis:**
 - H0: New Triage has no effect on wait time
 - H1: New Triage reduces wait time
+
+---
+### About Me
+Data Analyst  Training | SQL, Power BI, Python |  Kenya
+Built this project to demonstrate end-to-end analytics: raw data -> cleaning -> dashboard -> insights.
+Open to entry-level Data Analyst roles.
+**Author:** Derrick Korir 
+**LinkedIn:** https://www.linkdin.com/in/derrickkorir | **Github:** https://github.com/derrickkipkirui
