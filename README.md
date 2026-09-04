@@ -8,7 +8,7 @@
 ![Healthcare](https://img.shields.io/badge/Domain-Healthcare_EHR-E40000?style=for-the-badge)
 
 ## 📸 Dashboard - Power BI
-
+![Dashboard](hospital_dashboard.jpeg)
 **Home KPIs:** Total Patients 793 (Male 403 - 51%, Female 390 - 49%) | Total Revenue 396M | Total Encounters 48K | Average Claim 8.31K | Mortality Rate 19.90% | Years 2011-2022
 
 - Revenue by Payer: NO_INSURANCE (top), Medicare, Medicaid, Anthem, Humana, Blue Cross, Cigna, Aetna, United, Dual Eligible
