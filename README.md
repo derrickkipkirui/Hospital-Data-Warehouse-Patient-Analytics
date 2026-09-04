@@ -1,6 +1,6 @@
 # 🏥 Hospital Data Warehouse & Triage Optimization
 
-> End-to-End Healthcare Analytics | Medallion Architecture (raw → bronze → clean → gold) | 793 Patients, 48K Encounters, $396M Revenue | Mortality 19.9% + A/B Testing
+> End-to-End Healthcare Analytics | Medallion Architecture (raw → rawer → rawest) | 793 Patients, 48K Encounters, $396M Revenue | Mortality 19.9% + A/B Testing
 
 ![MySQL](https://img.shields.io/badge/MySQL-Workbench-00758F?style=for-the-badge&logo=mysql&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power_BI-Dashboard-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
@@ -27,14 +27,9 @@
 Boston hospital with fragmented EHR (patients, encounters, procedures, payers), high mortality 19.90%, long wait time for 65+ group (32K encounters).
 
 ## 🏗️ Architecture - Medallion Model
-**MySQL Workbench - hospital DB:** `rawer` / `rawest` → `bronze` / `bronze1` → `clean` / `cleaner` → `gold` / `gold1`
+**MySQL Workbench - hospital DB:** `raw` → `rawer`  → `rawest`
 
-Silver Layer Join:
-```sql
-SELECT py.NAME FROM rawer.procedures pr
-LEFT JOIN rawer.encounters en ON pr.ENCOUNTER = en.Id
-LEFT JOIN rawer.patients pt ON pr.PATIENT = pt.Id
-LEFT JOIN rawer.payers py ON en.PAYER = py.Id;
+
 
 ## 📊 Key Findings - From Your Gold Layer & Dashboard
 
@@ -70,16 +65,3 @@ LEFT JOIN rawer.payers py ON en.PAYER = py.Id;
 **Hypothesis:**
 - H0: New Triage has no effect on wait time
 - H1: New Triage reduces wait time
-
-**Design (Based on your 65+ cohort):**
-```python
-# script/ab_testing_triage.py
-from scipy import stats
-import pandas as pd
-
-# Using your actual cohort: 65+ patients
-control = df[df['group']=='old_triage']['wait_time'] # n=250, mean=45.2 min, std=8.1
-treatment = df[df['group']=='new_triage']['wait_time'] # n=250, mean=35.1 min, std=7.4
-
-t_stat, p_val = stats.ttest_ind(control, treatment)
-# Result: t=14.52, p=0.00004
