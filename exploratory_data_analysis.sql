@@ -1,6 +1,6 @@
 /*
 Rawest Layer - Exploratory Data Analysis
-Project: Hospital-Warehouse-Patient-Analytics
+Project: Hospital Warehouse Patient Analytics
 Description: Key business insights from Rawest layer
 */
 
